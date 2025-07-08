@@ -2,6 +2,10 @@ package com.shaninfotech.InterviewApp.Interview;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -27,16 +31,21 @@ public class AppTest {
         
        
     }
-   // @Test
-//  void testTopScorersAbove70() {
-//  	List<String> expectedNames = Arrays.asList("Sharanya","Yathin","Subbu");
-//  	
-//  	List<String> topScorers = scheduler.topperformersQueue.stream()
-//  			.filter(i -> i.getScore() > 70)
-//  			.map(Interview::getCandidateName)
-//  			.sorted()
-//  			.toList();
-//  	
-//  	assertEquals(expectedNames, topScorers);
-//  }
+    void testSchedulerCoreFlow() {
+    	List<String> expectedName = Arrays.asList("Sharanya","Yathin","Abhimanyu");
+    	
+    	List<String> topScorers = scheduler.topperformersQueue.stream()
+    			.filter(i -> i.getScore() > 70)
+    			.map(Interview::getCandidateName)
+    			.sorted()
+    			.toList();
+    	
+    	assertEquals(expectedName, topScorers);
+    	
+    }
+     //this is used for cleaning the above  constructor after completing the work
+    public void tearDown() {
+    	scheduler=null;
+    }
 }
+   
